@@ -243,12 +243,24 @@ img {
   }
 }
 
+.navbar-custom {
+  border-width: 0 0 1px;
+}
 /* Multi-level navigation links */
 .navbar-custom .nav .navlinks-container {
   position: relative;
 }
 .navbar-custom .nav .navlinks-parent:after {
   content: " \25BC";
+}
+.navbar-placeholder {
+  display: none;
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+}
+.navlinks-children {
+  z-index: 1000;
 }
 .navbar-custom .nav .navlinks-children {
   width: 100%;

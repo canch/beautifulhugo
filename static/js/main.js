@@ -9,9 +9,11 @@ var main = {
     // On mobile, hide the avatar when expanding the navbar menu
     $('#main-navbar').on('show.bs.collapse', function () {
       $(".navbar").addClass("top-nav-expanded navbar-fixed-top");
+      $(".navbar-placeholder").show()
     });
     $('#main-navbar').on('hidden.bs.collapse', function () {
       $(".navbar").removeClass("top-nav-expanded navbar-fixed-top");
+      $(".navbar-placeholder").hide()
     });
 
     // On mobile, when clicking on a multi-level navbar menu, show the child links
