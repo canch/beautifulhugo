@@ -26,7 +26,7 @@
       {{end}}></div>
   {{ end }}
 
-  {{ if eq .Type "posts"}}
+  {{ if eq .Type "post"}}
   <header class="header-section {{ if $bigimg }}has-img{{ end }}">
     {{ if $bigimg }}
       <div class="intro-header big-img">
@@ -44,7 +44,7 @@
                       <h2 class="{{ .Type }}-subheading">{{ $subtitle }}</h2>
                     {{ end }}
                   {{ end }}
-                  {{ if eq .Type "posts" }}
+                  {{ if eq .Type "post" }}
                     {{ partial "post_meta.html" . }}
                   {{ end }}
               </div>
@@ -64,7 +64,7 @@
               {{ else }}
                 <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
               {{ end }}
-              {{ if ne .Type "posts" }}
+              {{ if ne .Type "post" }}
                 <hr class="small">
               {{ end }}
               {{ if $subtitle }}
@@ -74,7 +74,7 @@
                   <h2 class="{{ .Type }}-subheading">{{ $subtitle }}</h2>
                 {{ end }}
               {{ end }}
-              {{ if eq .Type "posts" }}
+              {{ if eq .Type "post" }}
                 {{ partial "post_meta.html" . }}
               {{ end }}
             </div>
