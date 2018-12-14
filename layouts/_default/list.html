@@ -7,42 +7,24 @@
             {{.}}
           </div>
         {{ end }}
-        <div class="posts-list">
-          {{ range .Paginator.Pages }}
-            <article class="post-preview">
+
+        {{ range $idx, $_ := (.Paginate (.Data.Pages.GroupByDate "2006") 100).PageGroups }}
+        <div class="archive-block {{ if eq $idx 0 }} first-block {{ end }}">
+          <div class="archive-year">{{ .Key }}</div>
+          <ul class="archive-list">
+            {{ range .Pages }}
+            <li class="archive-item">
               <a href="{{ .Permalink }}">
-                <h2 class="post-title">{{ .Title }}</h2>
-
-                {{ if .Params.subtitle }}
-                  <h3 class="post-subtitle">
-                    {{ .Params.subtitle }}
-                  </h3>
-                {{ end }}
+                <span class="archive-title">{{ .Title }}</span>
               </a>
-
-              <p class="post-meta">
-                {{ partial "post_meta.html" . }}
-              </p>
-              <div class="post-entry">
-                {{ if .Truncated }}
-                  {{ .Summary }}
-                  <a href="{{ .Permalink }}" class="post-read-more">[{{ i18n "readMore" }}]</a>
-                {{ else }}
-                  {{ .Content }}
-                {{ end }}
-              </div>
-
-              {{ if .Params.tags }}
-                <div class="blog-tags">
-                  {{ range .Params.tags }}
-                    <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
-                  {{ end }}
-                </div>
-              {{ end }}
-
-            </article>
-          {{ end }}
+                <span class="archive-day">{{ .Date.Format "01-02" }}</span>
+            </li>
+            {{ end }}
+          </ul>
         </div>
+        {{ end }}
+
+
         {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
           <ul class="pager main-pager">
             {{ if .Paginator.HasPrev }}

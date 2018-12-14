@@ -816,3 +816,62 @@ h4.see-also {
  ul.share li:hover .fab {
   transform: scale(1.4)
 }
+
+
+.archive-block {
+  display: flex;
+  margin-top: 2em;
+  line-height: normal;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.archive-block.first-block {
+  margin-top: -5px;
+}
+
+.archive-block .archive-year {
+  padding-top: 4px;
+  margin-right: 1.8em;
+  font-size: 1.6em;
+  opacity: 0.6;
+  color: #000;
+}
+
+.archive-block .archive-list {
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.archive-block .archive-item {
+  border-bottom: 1px #404040 dashed;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  display: flex;
+}
+
+.archive-item a {
+  text-decoration: none;
+  border: none;
+}
+
+.archive-item .archive-title {
+  color: #404040;
+  font-weight: 800;
+}
+
+.archive-item a:hover > .archive-title,
+.archive-item a:hover + .archive-day,
+.archive-item a:active > .archive-title,
+.archive-item a:active + .archive-day {
+  color: #0085a1;
+}
+
+.archive-item .archive-day {
+  flex-shrink: 0;
+  margin-left: 1em;
+  opacity: 0.6;
+  color: #000;
+}
